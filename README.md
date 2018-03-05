@@ -32,12 +32,22 @@ telnet localhost 4444
 > target
 ```
 
-7. Unlock the flash (if needed)
+7. Halt the module
+```
+> halt
+```
+
+8. Unlock the flash (if needed)
 ```
 > stm32x_unlock 0
 ```
 
-8. Flash the binary
+9. Flash the binary
 ```
-flash write_bank 0 <absolute_path>/achilles.bin 0
+> flash write_bank 0 <absolute_path>/achilles.bin 0
+```
+
+10. Reset the module
+```
+> reset run
 ```
