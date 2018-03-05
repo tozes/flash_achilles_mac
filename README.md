@@ -3,28 +3,28 @@
 
 1. Install brew
 ```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 2. Install stlink and openocd and telnet
 ```
-brew install openocd
-brew install telnet
+$ brew install openocd
+$ brew install telnet
 ```
 
 3. Convert the hex file to binary using `arm-none-eabi-objcopy` (make sure the binary is in your $PATH)
 ```
-arm-none-eabi-objcopy -I ihex --output-target=binary <path>/Achilleas_V_1_4_EACHINE.hex  <path>/achilles.bin
+$ arm-none-eabi-objcopy -I ihex --output-target=binary <path>/Achilleas_V_1_4_EACHINE.hex  <path>/achilles.bin
 ```
 
 4. Run openocd
 ```
-openocd -f openocd.cfg -f stm32f1x.cfg -c init
+$ openocd -f openocd.cfg -f stm32f1x.cfg -c init
 ```
 
-5. Use telnet to connect to the debugger
+5. Open another terminal and use telnet to connect to the debugger
 ```
-telnet localhost 4444
+$ telnet localhost 4444
 ```
 
 6. Make sure your module is connected
