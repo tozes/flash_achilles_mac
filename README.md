@@ -29,7 +29,7 @@ $ telnet localhost 4444
 
 6. Make sure your module is connected
 ```
-> target
+> targets
 ```
 
 7. Halt the module
@@ -39,15 +39,30 @@ $ telnet localhost 4444
 
 8. Unlock the flash (if needed)
 ```
-> stm32x_unlock 0
+> stm32f1x unlock 0
 ```
 
-9. Flash the binary
+9. Reset to apply the changes
+```
+> reset run
+```
+
+10. Halt again
+```
+> halt
+```
+
+11. Erase bank 0
+```
+> stm32f1x mass_erase 0
+```
+
+12. Flash the binary
 ```
 > flash write_bank 0 <absolute_path>/achilles.bin 0
 ```
 
-10. Reset the module
+13. Reset the module
 ```
 > reset run
 ```
